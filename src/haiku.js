@@ -5,7 +5,11 @@ export default class Haiku {
     this.line3 = line3;
   }
 
-  checkValid() {}
+  checkValid() {
+    if (syllablesInWord(this.line1) === 1) {
+      return "Line 1 has one syllable.";
+    }
+  }
 }
 
 function syllablesInWord(word) {

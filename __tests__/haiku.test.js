@@ -11,8 +11,20 @@ describe("Haiku", () => {
     expect(typeof threeLines.line2).toEqual("string");
     expect(typeof threeLines.line3).toEqual("string");
   });
+  test("checkValid method should say that a word with 4 characters has one syllable", () => {
+    const threeLines = new Haiku("four");
+    expect(threeLines.checkValid()).toEqual("I cannot answer that right now.");
+  });
   test("checkValid method should say that a word with 3 characters has one syllable", () => {
     const threeLines = new Haiku("one");
+    expect(threeLines.checkValid()).toEqual("Line 1 has one syllable.");
+  });
+  test("checkValid method should say that a word with 2 characters has one syllable", () => {
+    const threeLines = new Haiku("to");
+    expect(threeLines.checkValid()).toEqual("Line 1 has one syllable.");
+  });
+  test("checkValid method should say that a word with 1 characters has one syllable", () => {
+    const threeLines = new Haiku("a");
     expect(threeLines.checkValid()).toEqual("Line 1 has one syllable.");
   });
 });

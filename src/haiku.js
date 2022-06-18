@@ -8,6 +8,8 @@ export default class Haiku {
   checkValid() {
     if (syllablesInWord(this.line1) === 1) {
       return "Line 1 has one syllable.";
+    } else {
+      return "I cannot answer that right now.";
     }
   }
 }

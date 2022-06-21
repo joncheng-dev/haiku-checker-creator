@@ -12,12 +12,12 @@ export default class Haiku {
     if (syllablesInWord(this.line1) === 1) {
       return "Line 1 has one syllable.";
     } else {
-      return "I cannot answer that right now.";
+      return "I can't answer that right now";
     }
   }
 }
 
-// Counts syllables.
+// Counts syllables in word.
 function syllablesInWord(word) {
   // If there are 3 characters or less, this is 1 syllable.
   if (word.toLowerCase().length <= 3) {
@@ -26,7 +26,14 @@ function syllablesInWord(word) {
   // If there are more than 3 characters, continue to check for syllables.
   // Check number of vowels.
   else if (word.toLowerCase().length > 3) {
-    return "Number of vowels is " + vowelCount(word.toLowerCase());
+    let vowels = 0;
+    vowels = vowelCount(word.toLowerCase());
+    // VOWEL SUBTRACTION RULES
+    // Subtract if 'e' at the end of a word:
+    if (word.toLowerCase().substr(word.length - 1) === "e") {
+      vowels = vowels - 1;
+    }
+    return vowels;
   }
 }
 

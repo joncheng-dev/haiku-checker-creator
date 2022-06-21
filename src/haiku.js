@@ -12,7 +12,7 @@ export default class Haiku {
     if (syllablesInWord(this.line1) === 1) {
       return "Line 1 has one syllable.";
     } else {
-      return "I can't answer that right now";
+      return "I cannot answer that right now.";
     }
   }
 }

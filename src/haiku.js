@@ -33,6 +33,11 @@ function syllablesInWord(word) {
     if (word.toLowerCase().substr(word.length - 1) === "e") {
       vowels = vowels - 1;
     }
+    // If a vowel follows another vowel.. subtract.
+    let regex = /[aeiou](?=[aeiou])/g;
+    if (word.toLowerCase().match(regex)) {
+      vowels = vowels - 1;
+    }
     return vowels;
   }
 }

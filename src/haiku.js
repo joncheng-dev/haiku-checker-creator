@@ -31,7 +31,11 @@ function syllablesInWord(word) {
     // VOWEL SUBTRACTION RULES
     // Subtract if 'e' at the end of a word:
     if (word.toLowerCase().substr(word.length - 1) === "e") {
-      vowels = vowels - 1;
+      if (word.toLowerCase().substr(word.length - 2) === "l") {
+        vowels = vowels;
+      } else {
+        vowels = vowels - 1;
+      }
     }
     // If a vowel follows another vowel.. subtract.
     let regex = /[aeiou](?=[aeiou])/g;

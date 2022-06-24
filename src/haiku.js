@@ -5,7 +5,7 @@ export default class Haiku {
     this.line3 = line3;
   }
 
-  // Check valid will see if it's a valid Haiku.
+  // SEE if it's a valid Haiku.
   checkValid() {
     // Check all three lines for numbers of syllables
     // First line:
@@ -17,40 +17,40 @@ export default class Haiku {
   }
 }
 
-// Counts syllables in word.
-function syllablesInWord(word) {
-  // If there are 3 characters or less, this is 1 syllable.
-  if (word.toLowerCase().length <= 3) {
-    return 1;
-  }
-  // If there are more than 3 characters, continue to check for syllables.
-  // Check number of vowels.
-  else if (word.toLowerCase().length > 3) {
-    let vowels = 0;
-    vowels = vowelCount(word.toLowerCase());
-    // VOWEL SUBTRACTION RULES
-    // Subtract if 'e' at the end of a word:
-    if (word.toLowerCase().substr(word.length - 1) === "e") {
-      if (word.toLowerCase().substr(word.length - 2) === "l") {
-        vowels = vowels;
-      } else {
-        vowels = vowels - 1;
-      }
-    }
-    // If a vowel follows another vowel.. subtract.
-    let regex = /[aeiou](?=[aeiou])/g;
-    if (word.toLowerCase().match(regex)) {
-      vowels = vowels - 1;
-    }
-    return vowels;
-  }
-}
+// // Counts syllables in word.
+// function syllablesInWord(word) {
+//   // If there are 3 characters or less, this is 1 syllable.
+//   if (word.toLowerCase().length <= 3) {
+//     return 1;
+//   }
+//   // If there are more than 3 characters, continue to check for syllables.
+//   // Check number of vowels.
+//   else if (word.toLowerCase().length > 3) {
+//     let vowels = 0;
+//     vowels = vowelCount(word.toLowerCase());
+//     // VOWEL SUBTRACTION RULES
+//     // If 'e' at the end of a word:
+//     if (word.toLowerCase().substr(word.length - 1) === "e") {
+//       if (word.toLowerCase().substr(word.length - 2) === "le") {
+//         vowels = vowels;
+//       } else {
+//         vowels = vowels - 1;
+//       }
+//     }
+//     // If a vowel follows another vowel.. subtract.
+//     let regex = /[aeiou](?=[aeiou])/g;
+//     if (word.toLowerCase().match(regex)) {
+//       vowels = vowels - 1;
+//     }
+//     return vowels;
+//   }
+// }
 
-// Counts vowels
-function vowelCount(word) {
-  const count = word.match(/[aeiou]/gi).length;
-  return count;
-}
+// // Counts vowels
+// function vowelCount(word) {
+//   const count = word.match(/[aeiou]/gi).length;
+//   return count;
+// }
 
 function countWords(sentence) {
   let separatedWords = sentence.split(" ");

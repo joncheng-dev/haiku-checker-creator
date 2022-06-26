@@ -7,19 +7,20 @@ import Haiku from "./haiku.js";
 // TEMP BUSINESS LOGIC:
 // Counts syllables in word.
 function syllablesInWord(word) {
+  word = word.toLowerCase();
   // If there are 3 characters or less, this is 1 syllable.
-  if (word.toLowerCase().length <= 3) {
+  if (word.length <= 3) {
     return 1;
   }
   // If there are more than 3 characters, continue to check for syllables.
   // Check number of vowels.
-  else if (word.toLowerCase().length > 3) {
+  else if (word.length > 3) {
     let vowels = 0;
-    vowels = vowelCount(word.toLowerCase());
+    vowels = vowelCount(word);
     // VOWEL SUBTRACTION RULES
     // If 'e' at the end of a word:
-    if (word.toLowerCase().substr(word.length - 1) === "e") {
-      if (word.toLowerCase().substr(word.length - 2) === "le") {
+    if (word.substr(word.length - 1) === "e") {
+      if (word.substr(word.length - 2) === "le") {
         vowels = vowels;
       } else {
         vowels = vowels - 1;
@@ -27,7 +28,7 @@ function syllablesInWord(word) {
     }
     // If a vowel follows another vowel.. subtract.
     let regex = /[aeiou](?=[aeiou])/g;
-    if (word.toLowerCase().match(regex)) {
+    if (word.match(regex)) {
       vowels = vowels - 1;
     }
     return vowels;

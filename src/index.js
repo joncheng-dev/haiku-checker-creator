@@ -27,7 +27,7 @@ function syllablesInWord(word) {
       }
     }
     // If a vowel follows another vowel.. subtract.
-    let regex = /[aeiou](?=[aeiou])/g;
+    let regex = /[aeiouy](?=[aeiouy])/g;
     if (word.match(regex)) {
       vowels = vowels - 1;
     }
@@ -37,7 +37,7 @@ function syllablesInWord(word) {
 
 // Counts vowels
 function vowelCount(word) {
-  const count = word.match(/[aeiou]/gi).length;
+  const count = word.match(/[aeiouy]/gi).length;
   return count;
 }
 

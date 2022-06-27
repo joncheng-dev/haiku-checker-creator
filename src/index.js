@@ -28,9 +28,11 @@ function syllablesInWord(word) {
     }
     // If a vowel follows another vowel.. subtract.
     let regex = /[aeiouy](?=[aeiouy])/g;
+    const found = word.match(regex);
     if (word.match(regex)) {
-      vowels = vowels - 1;
+      found.forEach((element) => (vowels = vowels - 1));
     }
+    console.log(found);
     return vowels;
   }
 }

@@ -27,4 +27,13 @@ describe("Haiku", () => {
     const threeLines = new Haiku("a");
     expect(threeLines.checkValid()).toEqual("Line 1 has one syllable.");
   });
+  test("vowelCount function should correctly return the number of vowels in a word", () => {
+    const threeLines = new Haiku(
+      "this is a string",
+      "second line here",
+      "a third line"
+    );
+    const userEnteredWord = "early";
+    expect(threeLines.vowelCount(userEnteredWord)).toEqual(3);
+  });
 });

@@ -4,45 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import Haiku from "./haiku.js";
 
-// TEMP BUSINESS LOGIC:
-// Counts syllables in word.
-function syllablesInWord(word) {
-  word = word.toLowerCase();
-  // If there are 3 characters or less, this is 1 syllable.
-  if (word.length <= 3) {
-    return 1;
-  }
-  // If there are more than 3 characters, continue to check for syllables.
-  // Check number of vowels.
-  else if (word.length > 3) {
-    let vowels = 0;
-    vowels = vowelCount(word);
-    // VOWEL SUBTRACTION RULES
-    // If 'e' at the end of a word:
-    if (word.substr(word.length - 1) === "e") {
-      if (word.substr(word.length - 2) === "le") {
-        vowels = vowels;
-      } else {
-        vowels = vowels - 1;
-      }
-    }
-    // If a vowel follows another vowel.. subtract.
-    let regex = /[aeiouy](?=[aeiouy])/g;
-    const found = word.match(regex);
-    if (word.match(regex)) {
-      found.forEach((element) => (vowels = vowels - 1));
-    }
-    console.log(found);
-    return vowels;
-  }
-}
-
-// Counts vowels
-function vowelCount(word) {
-  const count = word.match(/[aeiouy]/gi).length;
-  return count;
-}
-
 // User Interface Logic
 $(document).ready(function () {
   // Add here

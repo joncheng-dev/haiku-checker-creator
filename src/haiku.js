@@ -16,6 +16,24 @@ export default class Haiku {
   //   }
   // }
 
+  // Break line into words. Store into an array. Input individually into syllable counter.
+  syllablesInLine(sentence) {
+    let separatedWords = sentence.split(" ");
+    // Take all words in this array..
+    const noPunctuationLine = [];
+    separatedWords.forEach((element) =>
+      noPunctuationLine.push(
+        element.replace(/[.,\/?#!$%\^&\*;:{}=\-_`~()]/g, "")
+      )
+    );
+    let tallyLineSyllables = 0;
+    noPunctuationLine.forEach((element) =>
+      console.log((tallyLineSyllables += this.syllablesInWord(element)))
+    );
+    console.log("Total syllables in this line: " + tallyLineSyllables);
+    return tallyLineSyllables;
+  }
+
   // Counts vowels
   vowelCount(word) {
     const count = word.match(/[aeiouy]/gi).length;
@@ -53,12 +71,4 @@ export default class Haiku {
       return vowels;
     }
   }
-}
-
-// Break sentence into words. Store into an array. Input individually into
-function countWords(sentence) {
-  let separatedWords = sentence.split(" ");
-  // Try taking the first word in this array..
-  let word = separatedWords[0].replace(/[.,\/?#!$%\^&\*;:{}=\-_`~()]/g, "");
-  syllablesInWord(word);
 }

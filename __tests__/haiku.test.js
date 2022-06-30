@@ -40,21 +40,37 @@ describe("Haiku - support functions", () => {
     );
   });
   // TEST: Count all vowels.
-  test("vowelCount function should correctly return the number of vowels in a word", () => {
+  test("vowelCount should correctly return the number of vowels in a word", () => {
     const userEnteredWord = "early";
     expect(threeLines.vowelCount(userEnteredWord)).toEqual(3);
   });
   // TEST: Count syllables in a word.
-  test("syllablesInWord function should correctly return number of syllables in a word -- here words are 3 characters or less", () => {
+  test("syllablesInWord should correctly return number of syllables -- 3 characters or less", () => {
     const userEnteredWord = "one";
     expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(1);
   });
-  test("syllablesInWord function should correctly return number of syllables in a word -- here words are 3 characters or less", () => {
+  test("syllablesInWord should correctly return number of syllables -- 3 characters or less", () => {
     const userEnteredWord = "eye";
     expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(1);
   });
-  test("syllablesInWord function should correctly return number of syllables in a word -- here words are more than 3 characters", () => {
+  test("syllablesInWord should correctly return number of syllables -- more than 3 characters", () => {
     const userEnteredWord = "test";
     expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(1);
+  });
+  test("syllablesInWord should correctly return number of syllables -- more than 3 characters", () => {
+    const userEnteredWord = "tape";
+    expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(1);
+  });
+  test("syllablesInWord should correctly return number of syllables -- more than 3 characters", () => {
+    const userEnteredWord = "table";
+    expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(2);
+  });
+  test("syllablesInWord should correctly return number of syllables -- more than 3 characters", () => {
+    const userEnteredWord = "thorough";
+    expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(2);
+  });
+  test("syllablesInWord should correctly return number of syllables -- more than 3 characters", () => {
+    const userEnteredWord = "cyborg";
+    expect(threeLines.syllablesInWord(userEnteredWord)).toEqual(2);
   });
 });

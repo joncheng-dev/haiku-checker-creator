@@ -16,10 +16,15 @@ $(document).ready(function () {
   $("#haiku-checker-form").submit(function (event) {
     event.preventDefault();
     const line1 = $("#line1").val();
-    const line2 = $("#line2").val();
-    const line3 = $("#line3").val();
-    const haiku = new Haiku(line1, line2, line3);
-    const result = haiku.checkValid();
-    $("#haiku-check-result").append("<p>" + result + "</p>");
+    console.log(line1);
+    // const line2 = $("#line2").val();
+    // const line3 = $("#line3").val();
+    const haiku = new Haiku(line1);
+    // const result = haiku.checkValid();
+    const result = haiku.syllablesInLine(line1);
+    // To Do
+    $("#result_line1").append("<td>" + 1 + "</td>");
+    $("#result_line1").append("<td>" + line1 + "</td>");
+    $("#result_line1").append("<td>" + result + "</td>");
   });
 });

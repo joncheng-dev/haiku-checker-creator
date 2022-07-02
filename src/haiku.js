@@ -1,20 +1,18 @@
 export default class Haiku {
-  constructor(line1, line2, line3) {
+  constructor(line1) {
     this.line1 = line1;
-    this.line2 = line2;
-    this.line3 = line3;
   }
 
-  // // SEE if it's a valid Haiku.
-  // checkValid() {
-  //   // Check all three lines for numbers of syllables
-  //   // First line:
-  //   if (syllablesInWord(this.line1) === 1) {
-  //     return "Line 1 has one syllable.";
-  //   } else {
-  //     return "I cannot answer that right now.";
-  //   }
-  // }
+  // SEE if it's a valid Haiku.
+  checkValid() {
+    // Check all three lines for numbers of syllables
+    // First line:
+    if (syllablesInWord(this.line1) === 1) {
+      return "Line 1 has one syllable. Not valid.";
+    } else {
+      return "I cannot answer that right now.";
+    }
+  }
 
   // Break line into words. Store into an array. Input individually into syllable counter.
   syllablesInLine(sentence) {

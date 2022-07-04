@@ -14,8 +14,8 @@ export default class Haiku {
     }
   }
 
-  // Break line into words. Store into an array. Input individually into syllable counter.
-  syllablesInLine(sentence) {
+  // Break line into words. Store into an array.
+  lineCharsOnly(sentence) {
     let separatedWords = sentence.split(" ");
     // Take all words in this array..
     const noPunctuationLine = [];
@@ -24,11 +24,17 @@ export default class Haiku {
         element.replace(/[.,\/?#!$%\^&\*;:{}=\-_`~()]/g, "")
       )
     );
+    console.log("No punc: " + noPunctuationLine);
+    return noPunctuationLine;
+  }
+
+  lineTotalSyllables(array) {
+    // Takes an array, and tallies up syllables
     let tallyLineSyllables = 0;
-    noPunctuationLine.forEach((element) =>
-      console.log((tallyLineSyllables += this.syllablesInWord(element)))
+    array.forEach(
+      (element) => (tallyLineSyllables += this.syllablesInWord(element))
     );
-    console.log("Total syllables in this line: " + tallyLineSyllables);
+    console.log("Line total syllables " + tallyLineSyllables);
     return tallyLineSyllables;
   }
 

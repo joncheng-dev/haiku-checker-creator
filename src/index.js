@@ -21,10 +21,22 @@ $(document).ready(function () {
     // const line3 = $("#line3").val();
     const haiku = new Haiku(line1);
     // const result = haiku.checkValid();
-    const result = haiku.syllablesInLine(line1);
-    // To Do
+    const lineSeparatedWords = haiku.lineCharsOnly(line1);
+    const result = haiku.lineTotalSyllables(lineSeparatedWords);
+    // Line Syllables
     $("#result_line1").append("<td>" + 1 + "</td>");
     $("#result_line1").append("<td>" + line1 + "</td>");
     $("#result_line1").append("<td>" + result + "</td>");
+    // Word Syllables
+    for (let i = 0; i < lineSeparatedWords.length; i++) {
+      $("#line1_word_syllables").append(
+        "<tr><td>" +
+          lineSeparatedWords[i] +
+          "</td>" +
+          "<td>" +
+          haiku.syllablesInWord(lineSeparatedWords[i]) +
+          "</td></tr>"
+      );
+    }
   });
 });

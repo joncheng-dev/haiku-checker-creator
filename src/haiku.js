@@ -1,16 +1,20 @@
 export default class Haiku {
-  constructor(line1) {
+  constructor(line1, line2, line3) {
     this.line1 = line1;
+    this.line2 = line2;
+    this.line3 = line3;
   }
 
   // SEE if it's a valid Haiku.
   checkValid() {
     // Check all three lines for numbers of syllables
     // First line:
-    if (syllablesInWord(this.line1) === 1) {
-      return "Line 1 has one syllable. Not valid.";
+    if (lineTotalSyllables(this.line1) === 5) {
+      console.log("Line 1 has five syllables. Valid.");
+      return "Line 1 has five syllables. Valid.";
     } else {
-      return "I cannot answer that right now.";
+      console.log("Line 1 does not have 5 syllables. Invalid.");
+      return "Line 1 does not have 5 syllables. Invalid.";
     }
   }
 
@@ -24,7 +28,6 @@ export default class Haiku {
         element.replace(/[.,\/?#!$%\^&\*;:{}=\-_`~()]/g, "")
       )
     );
-    console.log("No punc: " + noPunctuationLine);
     return noPunctuationLine;
   }
 
@@ -34,7 +37,6 @@ export default class Haiku {
     array.forEach(
       (element) => (tallyLineSyllables += this.syllablesInWord(element))
     );
-    console.log("Line total syllables " + tallyLineSyllables);
     return tallyLineSyllables;
   }
 

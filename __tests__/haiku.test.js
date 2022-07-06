@@ -23,6 +23,31 @@ describe("Haiku class", () => {
   // });
 });
 
+describe("Haiku class -- variations in line texts", () => {
+  let threeLines;
+
+  threeLines = new Haiku(
+    "I want it that way",
+    "ain't nothing but a heartache",
+    "can't reach to your heart"
+  );
+
+  test("should take in 3 parameters from user, and decide they fulfill the 5, 7, 5 syllable pattern", () => {
+    expect(threeLines.checkValid()).toEqual("pass, pass, pass");
+  });
+
+  let otherLines;
+  otherLines = new Haiku(
+    "Tell me why",
+    "ain't nothing but a mistake",
+    "I want it that way"
+  );
+
+  test("should take in 3 parameters from user, and decide they fulfill the 5, 7, 5 syllable pattern", () => {
+    expect(otherLines.checkValid()).toEqual("no pass, pass, pass");
+  });
+});
+
 describe("Haiku - support functions", () => {
   let threeLines;
 

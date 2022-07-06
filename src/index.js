@@ -13,9 +13,8 @@ $(document).ready(function () {
     const line3 = $("#line3").val();
     const haiku = new Haiku(line1, line2, line3);
     // TEST
-    // const haikuTest1 = haiku.checkValid();
-    // console.log(haikuTest1);
-    // $("#haiku-result").append("<p>" + haikuTest1 + "</p>");
+    const haikuTest1 = haiku.checkValid();
+    $("#haiku-result").append("<p>" + haikuTest1 + "</p>");
 
     const line1SeparatedWords = haiku.lineCharsOnly(line1);
     const line2SeparatedWords = haiku.lineCharsOnly(line2);

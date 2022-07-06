@@ -7,15 +7,28 @@ export default class Haiku {
 
   // SEE if it's a valid Haiku.
   checkValid() {
+    let result = [];
     // Check all three lines for numbers of syllables
     // First line:
-    if (lineTotalSyllables(this.line1) === 5) {
-      console.log("Line 1 has five syllables. Valid.");
-      return "Line 1 has five syllables. Valid.";
+    if (this.lineTotalSyllables(this.lineCharsOnly(this.line1)) === 5) {
+      result.push("pass");
     } else {
-      console.log("Line 1 does not have 5 syllables. Invalid.");
-      return "Line 1 does not have 5 syllables. Invalid.";
+      result.push("no pass");
     }
+    // Second line:
+    if (this.lineTotalSyllables(this.lineCharsOnly(this.line2)) === 7) {
+      result.push("pass");
+    } else {
+      result.push("no pass");
+    }
+    // Third line:
+    if (this.lineTotalSyllables(this.lineCharsOnly(this.line3)) === 5) {
+      result.push("pass");
+    } else {
+      result.push("no pass");
+    }
+    result = result.join(", ");
+    return result;
   }
 
   // Break line into words. Store into an array.
@@ -73,7 +86,6 @@ export default class Haiku {
       if (word.match(regex)) {
         found.forEach((element) => (vowels = vowels - 1));
       }
-      console.log(found);
       return vowels;
     }
   }

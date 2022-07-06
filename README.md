@@ -1,6 +1,6 @@
-# (Application Name)
+# Haiku Checker
 
-#### (Brief Description of Application)
+#### A quick and easy to use haiku checker.
 
 #### By Jonathan Cheng
 
@@ -13,6 +13,8 @@
 
 ## Description
 
+Is your three lined poem a haiku? Find out by using this application. It will take three lines of text and tell if fits the syllable requirements of a haiku.
+
 ## Setup/Installation Requirements
 
 - Clone this repository to your desktop
@@ -20,8 +22,8 @@
 
 ## Known Bugs
 
-- _Any known issues_
-- _should go here_
+- _Accepts numbers as part of the text entered._
+- _Algorithm for counting syllables needs improvement to increase coverage of exceptions._
 
 ## License
 

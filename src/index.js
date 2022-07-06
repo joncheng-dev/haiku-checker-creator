@@ -8,9 +8,17 @@ import Haiku from "./haiku.js";
 $(document).ready(function () {
   $("#haiku-checker-form").submit(function (event) {
     event.preventDefault();
+    $("#haiku-result").html("");
+    $("#result_line1").html("");
+    $("#result_line2").html("");
+    $("#result_line3").html("");
+    $("#line1_word_syllables").html("");
+    $("#line2_word_syllables").html("");
+    $("#line3_word_syllables").html("");
     const line1 = $("#line1").val();
     const line2 = $("#line2").val();
     const line3 = $("#line3").val();
+    $("#haiku-checker-form").trigger("reset");
     const haiku = new Haiku(line1, line2, line3);
     // TEST
     const haikuTest1 = haiku.checkValid();
